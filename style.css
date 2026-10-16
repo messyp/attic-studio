@@ -1,0 +1,81 @@
+/* Attic Studio: warm paper and roof timber, light and dark. */
+:root {
+  --bg: #f7f1e8;
+  --card: #fffaf3;
+  --ink: #2b1d14;
+  --muted: #7b6757;
+  --line: #e6d9c8;
+  --timber: #8a5a36;
+  --accent: #d9622b;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #16110d;
+    --card: #211912;
+    --ink: #f2e8dc;
+    --muted: #b09c8a;
+    --line: #3a2d22;
+    --timber: #c08a5c;
+    --accent: #f07a43;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+main { max-width: 680px; margin: 0 auto; padding: 32px 16px 56px; }
+a { color: var(--accent); text-underline-offset: 2px; }
+img { max-width: 100%; }
+
+/* Header: the gable with its round window, and the name. */
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
+.brand svg { width: 44px; height: 44px; flex: none; }
+.brand span { font-weight: 700; font-size: 19px; letter-spacing: -0.01em; }
+header.site { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+
+h1 { font-size: 34px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
+h2 { font-size: 21px; margin: 36px 0 8px; }
+.lede { color: var(--muted); font-size: 19px; margin: 0 0 28px; }
+.small { color: var(--muted); font-size: 14px; }
+
+/* An app on the home page. */
+.app {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 16px;
+  align-items: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 18px;
+}
+.app img.icon { width: 88px; height: 88px; border-radius: 20px; }
+.app h2 { margin: 2px 0 4px; }
+.app p { margin: 0 0 10px; color: var(--muted); }
+.links { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 15px; font-weight: 600; }
+
+/* A row of watch screenshots. */
+.shots { display: flex; gap: 10px; margin: 20px 0 4px; overflow-x: auto; padding-bottom: 6px; }
+.shots img { height: 190px; border-radius: 30px; flex: none; }
+
+/* An app's own page. */
+.app-head { display: flex; gap: 16px; align-items: center; margin-bottom: 8px; }
+.app-head img { width: 72px; height: 72px; border-radius: 17px; flex: none; }
+.app-head h1 { margin: 0; }
+.app-head p { margin: 2px 0 0; color: var(--muted); }
+nav.sub { display: flex; gap: 16px; font-weight: 600; font-size: 15px; margin: 18px 0 8px; }
+nav.sub a[aria-current] { color: var(--ink); text-decoration: none; }
+
+footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; }
+
+@media (max-width: 480px) {
+  h1 { font-size: 28px; }
+  .app { grid-template-columns: 64px 1fr; padding: 14px; }
+  .app img.icon { width: 64px; height: 64px; border-radius: 15px; }
+  .shots img { height: 150px; border-radius: 24px; }
+}
