@@ -5,7 +5,7 @@ import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 STUDIO = "Attic Studio"
-CONTACT = "CONTACT_EMAIL"   # the support address, shown on every app's pages
+CONTACT = "paulmessenger@hotmail.com"   # the support address, shown on every app's pages
 UPDATED = "16 October 2026"
 
 APPS = [
