@@ -1,16 +1,17 @@
 # Attic Studio
 
-The website for Paul Messenger's apps: a home page, plus a support page and a privacy policy for each app. Plain HTML and one stylesheet, hosted free on GitHub Pages.
+The Attic Studio website: a home page, plus a support page and a privacy policy for each app. Plain HTML and one stylesheet, hosted free on GitHub Pages.
 
 ## Pages
 
 | Page | Path | Used for |
 |---|---|---|
 | Home | `/` | Marketing URL (optional) |
-| Watch Toys support | `/watch-toys/` | App Store Connect → Support URL |
-| Watch Toys privacy | `/watch-toys/privacy/` | App Store Connect → Privacy Policy URL |
+| Watch Toys | `/watch-toys/` and `/watch-toys/privacy/` | App Store Connect → Support URL and Privacy Policy URL |
+| Watch Pinball | `/watch-pinball/` and `/watch-pinball/privacy/` | the same, when it ships |
+| Pixel MTB | `/pixel-mtb/` and `/pixel-mtb/privacy/` | the same, when it ships |
 
-Before publishing, replace `CONTACT_EMAIL` (in `watch-toys/index.html` and `watch-toys/privacy/index.html`) with the support address.
+The pages are generated: edit the app list (or the support address, `CONTACT`) in `tools/build.py`, then run `python3 tools/build.py`. Commit the generated HTML; GitHub Pages serves it as is.
 
 ## Publishing on GitHub Pages
 
@@ -23,7 +24,7 @@ All links are relative, so the site works at that address and on a custom domain
 
 ## Adding an app
 
-Copy `watch-toys/` to a new folder, change the name, icon, help text and privacy details, and add a card for it on the home page.
+Add an entry to `APPS` in `tools/build.py` (name, tagline, blurb, help and privacy text), put a 256×256 icon at `images/<slug>-icon.png`, and run the build.
 
 ## Previewing locally
 

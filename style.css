@@ -79,3 +79,18 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
   .app img.icon { width: 64px; height: 64px; border-radius: 15px; }
   .shots img { height: 150px; border-radius: 24px; }
 }
+
+/* The apps on the home page, and a "Coming soon" label. */
+.apps { display: grid; gap: 14px; }
+.tag {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 6px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
