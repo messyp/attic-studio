@@ -42,9 +42,11 @@ APPS = [
                  "multiball and wizard mode. Wind the plunger with the Digital Crown and nudge with a flick of the wrist.",
         "status": "Coming soon",
         "help": [
-            ("Controls", "Tap or hold the left or right half of the screen to flip that side. Before each ball, wind the "
-                         "plunger with the Digital Crown and let go with a tap. A firm shake of the wrist nudges the table, "
-                         "but three in a few seconds is a tilt."),
+            ("Controls", "Tap or hold the left or right half of the screen to flip that side; hold to catch the ball "
+                         "on a raised flipper. A flick of the Digital Crown flips both sides. Before each ball, turn the "
+                         "crown down to wind the plunger and let go: it fires on its own (or tap). A firm shake of the "
+                         "wrist nudges the table, but three in a few seconds is a tilt."),
+            ("New to it?", "How to Play on the home screen walks you through every control on a real table in about a minute."),
             ("Can't see the flippers?", "The camera follows the ball and drops to the flippers as it falls. If a ball "
                                         "gets close to flippers that are off screen, the game slows down until they're in view."),
         ],
@@ -54,6 +56,7 @@ APPS = [
             ("What stays on your watch", "Your settings and high scores are kept only on your watch. The game uses the "
                                          "watch's motion sensors so a shake of the wrist can nudge the table. That data "
                                          "stays on the watch and is not recorded."),
+            ("Purchases", "Watch Pinball is bought through the App Store. Apple handles the payment and we never see your details."),
         ],
     },
     {
