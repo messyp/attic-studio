@@ -59,6 +59,19 @@ h2 { font-size: 21px; margin: 36px 0 8px; }
 .app p { margin: 0 0 10px; color: var(--muted); }
 .links { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 15px; font-weight: 600; }
 
+/* The App Store button for a released app. */
+a.store {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: var(--bg);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+}
+a.store:hover { background: var(--accent); }
+
 /* A row of watch screenshots. */
 .shots { display: flex; gap: 10px; margin: 20px 0 4px; overflow-x: auto; padding-bottom: 6px; }
 .shots img { height: 190px; border-radius: 30px; flex: none; }
