@@ -180,9 +180,12 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 .links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; font-weight: 700; font-size: 16px; }
 .links a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 2px; }
 .black .links a { color: var(--ink-pale); }
+.minor { display: flex; gap: 20px; }
 .links a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
 .links a.store { padding: 9px 16px; background: var(--blue); color: var(--paper); text-decoration: none; letter-spacing: .02em; text-transform: uppercase; font-size: 15px; }
 .links a.store:hover { background: var(--ink); color: var(--black); }
+.links a.site { padding: 9px 16px; background: var(--ink); color: var(--black); text-decoration: none; letter-spacing: .02em; text-transform: uppercase; font-size: 15px; }
+.links a.site:hover { background: var(--blue); color: var(--paper); }
 
 .note { margin: 68px auto 0; max-width: 680px; padding: 22px 26px 24px; background: var(--paper); border: 2px solid var(--black); transform: rotate(-.7deg); font: 400 clamp(26px, 3.6vw, 34px)/1.2 var(--hand); letter-spacing: .02em; }
 
