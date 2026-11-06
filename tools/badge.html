@@ -1,0 +1,27 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Footer badge</title>
+<!-- Source for images/badge.png, the "made by" badge on the app sites. They load nothing from
+     third parties, so the lettering ships as an image. Render with tools/badge.sh. -->
+<link href="https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; background: transparent; }
+  .stage { position: relative; width: 330px; height: 150px; }
+  .box {
+    position: absolute; left: 14px; top: 26px; width: 272px; height: 98px;
+    overflow: hidden; display: grid; place-content: center; text-align: center;
+    color: #fff; background: #ff0a78; border: 2px solid #0b0b0b;
+    box-shadow: 6px 7px 0 #0b0b0b; transform: rotate(-2deg);
+    font: 400 42px/.88 "Covered By Your Grace", cursive;
+    letter-spacing: .015em; text-transform: uppercase; box-sizing: border-box;
+  }
+  .box::before { content: ""; position: absolute; inset: 0; background: radial-gradient(circle, rgba(255,255,255,.5) 1.2px, transparent 1.7px) 0 0 / 6px 6px; -webkit-mask-image: radial-gradient(70% 90% at 0% 100%, #000 30%, transparent 100%); mask-image: radial-gradient(70% 90% at 0% 100%, #000 30%, transparent 100%); }
+  .box::after { content: ""; position: absolute; inset: 0; background: url(../home/speck.png); opacity: .2; }
+  .box span { position: relative; z-index: 1; display: block; -webkit-text-stroke: .012em currentColor; filter: url(#rough); }
+  .moth { position: absolute; right: 2px; top: 2px; width: 84px; transform: rotate(12deg); }
+</style>
+<svg width="0" height="0" style="position:absolute"><filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="4"/><feDisplacementMap in="SourceGraphic" scale="2.2"/></filter></svg>
+<div class="stage">
+  <div class="box"><span>Beautiful<br>Distraction</span></div>
+  <img class="moth" src="../images/moth.svg" alt="">
+</div>
