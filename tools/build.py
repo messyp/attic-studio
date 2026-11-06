@@ -1,10 +1,10 @@
-"""Builds the Attic Studio site from the app list below: the home page plus a support page and a
-privacy policy for each app. Edit APPS (or CONTACT) and run `python3 tools/build.py`."""
+"""Builds the support page and privacy policy for each app from the list below. The home page is
+hand-written in index.html. Edit APPS (or CONTACT) and run `python3 tools/build.py`."""
 import html
 import os
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-STUDIO = "Attic Studio"
+STUDIO = "Beautiful Distraction"
 CONTACT = "paulmessenger@hotmail.com"   # the support address, shown on every app's pages
 UPDATED = "16 October 2026"
 
@@ -13,8 +13,6 @@ APPS = [
         "slug": "watch-toys",
         "name": "Watch Toys",
         "tagline": "Tactile toys and tiny games for Apple Watch.",
-        "blurb": "Fifteen tactile toys and tiny games for Apple Watch: steel balls, fireworks, bubble poppers, "
-                 "smoke, mazes and more, all with haptics you can feel.",
         "status": None,
         "help": [
             ("What's free?", "Magnet, Orbs, Pop, Maze and Trace are free to play. One purchase, <em>Unlock all toys</em>, "
@@ -38,9 +36,8 @@ APPS = [
         "slug": "watch-pinball",
         "name": "Watch Pinball",
         "tagline": "Proper pinball on your wrist.",
-        "blurb": "Three pinball tables for Apple Watch, Cosmic, Haunted and Treasure, each with its own missions, "
-                 "multiball and wizard mode. Wind the plunger with the Digital Crown and nudge with a flick of the wrist.",
-        "status": "Coming soon",
+        "status": None,
+        "store": "https://apps.apple.com/app/id6822812366",
         "help": [
             ("Controls", "Tap or hold the left or right half of the screen to flip that side; hold to catch the ball "
                          "on a raised flipper. A flick of the Digital Crown flips both sides. Before each ball, turn the "
@@ -63,8 +60,6 @@ APPS = [
         "slug": "pixel-mtb",
         "name": "Pixel MTB",
         "tagline": "A pixel-art mountain bike game for iPhone.",
-        "blurb": "Ride pixel-art trails through forests, an old town, a canyon and a glacier. Pump the rollers, "
-                 "pop off the lips, flip and grab your way to three stars on every trail.",
         "status": "Coming soon",
         "help": [
             ("Controls", "Hold to crouch and release to pump: let go on the back of a roller to gain speed, or right on "
@@ -83,11 +78,6 @@ APPS = [
     },
 ]
 
-LOGO = """<svg viewBox="0 0 44 44" aria-hidden="true">
-        <path d="M4 40 L22 6 L40 40 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-        <circle cx="22" cy="28" r="6" fill="#d9622b"/>
-        <path d="M22 22 V34 M16 28 H28" stroke="var(--bg)" stroke-width="1.6"/>
-      </svg>"""
 
 
 def page(title, description, up, body):
@@ -99,16 +89,19 @@ def page(title, description, up, body):
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(description)}">
 <link rel="icon" href="{up}images/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{up}style.css">
 </head>
 <body>
+<header class="site">
+  <a class="brand" href="{up}">
+    <img src="{up}images/moth.svg" alt="" width="60" height="51">
+    <span>{STUDIO}</span>
+  </a>
+</header>
 <main>
-  <header class="site">
-    <a class="brand" href="{up or './'}">
-      {LOGO}
-      <span>{STUDIO}</span>
-    </a>
-  </header>
 {body}
   <footer>© 2026 {STUDIO}</footer>
 </main>
@@ -123,6 +116,7 @@ def app_head(app, up, subtitle, current):
     sc = ' aria-current="page"' if current == "support" else ""
     pc = ' aria-current="page"' if current == "privacy" else ""
     status = f' <span class="tag">{app["status"]}</span>' if app["status"] else ""
+    store = f"""  <p><a class="store" href="{app['store']}">Download on the App Store</a></p>\n""" if app.get("store") and current == "support" else ""
     return f"""
   <div class="app-head">
     <img src="{up}images/{app['slug']}-icon.png" alt="{app['name']} icon">
@@ -131,7 +125,7 @@ def app_head(app, up, subtitle, current):
       <p>{subtitle}{status}</p>
     </div>
   </div>
-  <nav class="sub">
+{store}  <nav class="sub">
     <a href="{support}"{sc}>Support</a>
     <a href="{privacy}"{pc}>Privacy policy</a>
   </nav>
@@ -146,28 +140,6 @@ def write(path, text):
 
 
 mail = f'<a href="mailto:{CONTACT}">{CONTACT}</a>'
-cards = ""
-for app in APPS:
-    status = f' <span class="tag">{app["status"]}</span>' if app["status"] else ""
-    cards += f"""
-  <section class="app">
-    <img class="icon" src="images/{app['slug']}-icon.png" alt="{app['name']} icon">
-    <div>
-      <h2>{app['name']}{status}</h2>
-      <p>{html.escape(app['blurb'])}</p>
-      <div class="links">
-        <a href="{app['slug']}/">Support</a>
-        <a href="{app['slug']}/privacy/">Privacy policy</a>
-      </div>
-    </div>
-  </section>
-"""
-write("index.html", page(STUDIO, "Little apps, made in an attic.", "", f"""
-  <h1>Little apps, made in an attic.</h1>
-  <p class="lede">Small, hand-made apps and games for Apple Watch and iPhone.</p>
-  <div class="apps">{cards}  </div>
-"""))
-
 for app in APPS:
     help_html = "".join(f"  <p><strong>{q}:</strong> {a}</p>\n" if not q.endswith("?") else f"  <p><strong>{q}</strong> {a}</p>\n"
                         for q, a in app["help"])
@@ -185,4 +157,4 @@ for app in APPS:
   <p>If this policy changes, the new version will be posted on this page. Questions about privacy: {mail}.</p>
   <p class="small">Last updated {UPDATED}.</p>
 """))
-print("built", 1 + 2 * len(APPS), "pages")
+print("built", 2 * len(APPS), "pages")

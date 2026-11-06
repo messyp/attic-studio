@@ -1,0 +1,207 @@
+/* Beautiful Distraction: one loud ink, a photocopier and a marker pen. */
+:root {
+  --ink: #ff0a78;
+  --ink-pale: #ff9ccb;
+  --black: #0b0b0b;
+  --paper: #fff;
+  --blue: #0000f5;
+  --display: "Covered By Your Grace", "Marker Felt", cursive;
+  --hand: "Covered By Your Grace", "Marker Felt", cursive;
+  --text: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --title: clamp(64px, 16vw, 176px);
+  --heading: clamp(52px, 9vw, 92px);
+  --name: clamp(50px, 6.6vw, 72px);
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  overflow-x: hidden;
+  background: var(--black);
+  color: var(--black);
+  font: 500 18px/1.5 var(--text);
+}
+body::before {               /* the photocopied attic, fixed behind everything */
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: url(paper.png) center / cover;
+}
+p, h1, h2, h3 { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+.defs { position: absolute; }
+
+/* Line drawing, shared by the moth and the bulb. */
+.line { fill: none; stroke: var(--black); stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.line.thin { stroke-width: 2.2; }
+.line.paper { fill: var(--paper); }
+.line.fuzz { fill: var(--paper); stroke-dasharray: 5 2.5; stroke-width: 3.4; }
+.solid { fill: var(--black); }
+.wing-fill { fill: var(--ink); }
+
+.bar { background: var(--black); color: var(--paper); border-bottom: 1px solid var(--ink); padding: 11px 24px; font-size: 15px; }
+.bar p { max-width: 1040px; margin: 0 auto; }
+
+/* The big label. */
+.hero { position: relative; max-width: 1120px; margin: 0 auto; padding: 96px 24px 72px; }
+.label {
+  position: relative;
+  overflow: hidden;
+  padding: 44px 32px 30px;
+  text-align: center;
+  color: var(--paper);
+  background: var(--ink);
+  border: 2px solid var(--black);
+  transform: rotate(-1.6deg);
+  box-shadow: 9px 10px 0 var(--black);
+}
+.label::before {            /* halftone in two corners */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(255,255,255,.5) 1.3px, transparent 1.9px) 0 0 / 7px 7px;
+  -webkit-mask-image: radial-gradient(60% 50% at 0% 100%, #000 45%, transparent 100%), radial-gradient(50% 45% at 100% 0%, #000 30%, transparent 100%);
+          mask-image: radial-gradient(60% 50% at 0% 100%, #000 45%, transparent 100%), radial-gradient(50% 45% at 100% 0%, #000 30%, transparent 100%);
+}
+.label::after {             /* pale mottling across the flat colour */
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url(speck.png);
+  opacity: .32;
+  pointer-events: none;
+}
+.label > * { position: relative; z-index: 1; }
+.kicker { font: 400 clamp(21px, 3.1vw, 32px)/1.1 var(--hand); letter-spacing: .08em; text-transform: uppercase; }
+h1 {
+  margin: 12px 0 2px;
+  font: 400 var(--title)/.86 var(--display);
+  text-transform: uppercase;
+  -webkit-text-stroke: .012em currentColor;
+  filter: url(#rough);
+  -webkit-mask-image: url(ink.png);
+          mask-image: url(ink.png);
+}
+h1 span { display: block; }
+.stroke { display: block; width: min(76%, 640px); height: 16px; margin: 0 auto 18px; overflow: visible; }
+.stroke path { fill: none; stroke: var(--paper); stroke-width: 7; stroke-linecap: round; vector-effect: non-scaling-stroke; }
+.ribbon { position: relative; width: min(100%, 440px); margin: 0 auto 16px; padding: 12px 36px 13px; font: 400 clamp(23px, 3.4vw, 34px)/1 var(--hand); letter-spacing: .06em; text-transform: uppercase; }
+.ribbon svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.ribbon path { fill: var(--black); stroke: var(--black); stroke-width: 2; stroke-linejoin: round; }
+.ribbon span { position: relative; }
+.lede { font: 700 clamp(18px, 2.2vw, 23px)/1.3 var(--text); color: var(--black); }
+.small-print {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px 24px;
+  flex-wrap: wrap;
+  margin-top: 22px;
+  color: var(--black);
+  font: 400 25px/1.1 var(--hand);
+  letter-spacing: .03em;
+}
+
+/* The bulb hangs from the bar, over the label's corner. */
+.bulb { cursor: pointer; position: absolute; top: 0; right: clamp(8px, 7vw, 92px); z-index: 3; width: clamp(86px, 12vw, 128px); transform-origin: 50% 0; animation: sway 7s ease-in-out infinite; }
+.bulb svg { display: block; overflow: visible; }
+.glass { fill: var(--paper); }
+.glass-print { fill: var(--ink); }
+.cap { fill: var(--black); }
+.bulb .thin + .cap + .thin { stroke: var(--paper); }
+.rays path { fill: none; stroke: var(--paper); stroke-width: 5; stroke-linecap: round; paint-order: stroke; }
+.bulb.bonk { animation: bonk .5s ease-out; }
+@keyframes sway { 50% { transform: rotate(1.4deg); } 0%, 100% { transform: rotate(-1.4deg); } }
+@keyframes bonk { 25% { transform: rotate(-5deg); } 60% { transform: rotate(3deg); } 100% { transform: rotate(0); } }
+
+.tink {
+  position: fixed;
+  left: 0; top: 0;
+  z-index: 11;
+  margin: 0;
+  padding: 0 8px 1px;
+  background: var(--black);
+  color: var(--paper);
+  font: 400 26px/1.1 var(--hand);
+  letter-spacing: .04em;
+  opacity: 0;
+  pointer-events: none;
+}
+.tink.on { animation: tink .8s ease-out; }
+@keyframes tink { 0% { opacity: 1; translate: 0 0; rotate: -8deg; } 70% { opacity: 1; } 100% { opacity: 0; translate: 10px -26px; rotate: 5deg; } }
+
+/* The moth. */
+.moth { position: fixed; left: 0; top: 0; z-index: 10; width: 150px; pointer-events: none; overflow: visible; will-change: transform; }
+.wing-l, .wing-r { transform-box: view-box; transform-origin: 100px 85px; animation: flap .15s ease-in-out infinite alternate; }
+@keyframes flap { to { transform: scaleX(.5); } }
+.moth.resting .wing-l, .moth.resting .wing-r { animation: none; transform: scaleX(.68); transition: transform .4s; }
+
+/* Page content. */
+main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
+.knockout { margin: 8px 0 40px; font: 400 var(--heading)/1 var(--display); }
+.knockout span { display: table; padding: 0 14px 2px; background: var(--paper); }
+
+.apps { display: grid; gap: 44px; }
+.app {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 230px) 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 28px 30px 30px;
+  border: 2px solid var(--black);
+}
+.app:nth-child(odd)  { transform: rotate(-.8deg); margin-right: 7%; }
+.app:nth-child(even) { transform: rotate(.9deg); margin-left: 7%; }
+.pink  { background: var(--ink); }
+.white { background: var(--paper); }
+.black { background: var(--black); border-color: var(--paper); color: var(--paper); }
+.app h3 { font: 400 var(--name)/1 var(--display); margin: 2px 0 8px; }
+.app p { margin-bottom: 14px; }
+
+/* App icons printed in one ink. Point at one and it shows its true colours. */
+.print { background: var(--ink); border: 2px solid var(--black); transform: rotate(-2deg); }
+.pink .print { background: var(--paper); }
+.black .print { border-color: var(--paper); }
+.print img { width: 100%; filter: grayscale(1) contrast(1.3); mix-blend-mode: multiply; transition: filter .2s; }
+.app:hover .print img { filter: none; mix-blend-mode: normal; }
+
+.stamp {
+  display: inline-block;
+  margin: 0 0 8px !important;
+  padding: 1px 9px 2px;
+  font: 400 21px/1.15 var(--hand);
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  border: 2px solid currentColor;
+  transform: rotate(-2deg);
+}
+.links { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; font-weight: 700; font-size: 16px; }
+.links a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+.black .links a { color: var(--ink-pale); }
+.links a:focus-visible { outline: 3px solid var(--blue); outline-offset: 2px; }
+.links a.store { padding: 9px 16px; background: var(--blue); color: var(--paper); text-decoration: none; letter-spacing: .02em; text-transform: uppercase; font-size: 15px; }
+.links a.store:hover { background: var(--ink); color: var(--black); }
+
+.note { margin: 68px auto 0; max-width: 680px; padding: 22px 26px 24px; background: var(--paper); border: 2px solid var(--black); transform: rotate(-.7deg); font: 400 clamp(26px, 3.6vw, 34px)/1.2 var(--hand); letter-spacing: .02em; }
+
+footer { margin-top: 72px; padding: 30px 24px 40px; background: var(--black); color: var(--paper); text-align: center; font-size: 15px; border-top: 1px solid var(--ink); }
+.sign-off { font: 400 clamp(38px, 5.4vw, 56px)/1.1 var(--display); color: var(--ink-pale); margin-bottom: 8px; }
+
+@media (max-width: 640px) {
+  body { font-size: 17px; }
+  .bar { padding-inline: 16px; }
+  .hero { padding: 132px 16px 52px; }
+  .label { padding: 30px 16px 22px; box-shadow: 6px 7px 0 var(--black); }
+  main { padding: 0 16px; }
+  .app { grid-template-columns: 1fr; gap: 18px; padding: 20px 18px 22px; }
+  .app:nth-child(n) { margin-inline: 0; }
+  .print { width: 150px; }
+  .small-print { justify-content: center; text-align: center; }
+  .moth { width: 96px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bulb, .bulb.bonk, .wing-l, .wing-r, .tink.on { animation: none; }
+}

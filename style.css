@@ -1,22 +1,19 @@
-/* Attic Studio: warm paper and roof timber, light and dark. */
+/* Support and privacy pages: the Beautiful Distraction look, kept quiet so they're easy to read. */
 :root {
-  --bg: #f7f1e8;
-  --card: #fffaf3;
-  --ink: #2b1d14;
-  --muted: #7b6757;
-  --line: #e6d9c8;
-  --timber: #8a5a36;
-  --accent: #d9622b;
+  --bg: #fff;
+  --ink: #0b0b0b;
+  --muted: #555;
+  --line: #e4e4e4;
+  --accent: #d6005f;
+  --hot: #ff0a78;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #16110d;
-    --card: #211912;
-    --ink: #f2e8dc;
-    --muted: #b09c8a;
-    --line: #3a2d22;
-    --timber: #c08a5c;
-    --accent: #f07a43;
+    --bg: #0b0b0b;
+    --ink: #f6f6f6;
+    --muted: #b4b4b4;
+    --line: #333;
+    --accent: #ff7ab8;
   }
 }
 
@@ -26,51 +23,36 @@ body {
   margin: 0;
   background: var(--bg);
   color: var(--ink);
-  font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font: 500 17px/1.6 "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
 }
 main { max-width: 680px; margin: 0 auto; padding: 32px 16px 56px; }
 a { color: var(--accent); text-underline-offset: 2px; }
 img { max-width: 100%; }
 
-/* Header: the gable with its round window, and the name. */
-.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); }
-.brand svg { width: 44px; height: 44px; flex: none; }
-.brand span { font-weight: 700; font-size: 19px; letter-spacing: -0.01em; }
-header.site { padding-bottom: 20px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+/* Header: the moth, and the name in felt tip. */
+header.site { background: #0b0b0b; border-bottom: 2px solid var(--hot); padding: 10px 16px; }
+.brand { display: flex; align-items: center; gap: 10px; max-width: 648px; margin: 0 auto; text-decoration: none; color: #fff; }
+.brand img { width: 52px; height: auto; flex: none; }
+.brand span { font: 400 30px/1 "Covered By Your Grace", "Marker Felt", cursive; letter-spacing: .02em; text-transform: uppercase; }
 
 h1 { font-size: 34px; line-height: 1.15; margin: 0 0 8px; letter-spacing: -0.02em; }
 h2 { font-size: 21px; margin: 36px 0 8px; }
 .lede { color: var(--muted); font-size: 19px; margin: 0 0 28px; }
 .small { color: var(--muted); font-size: 14px; }
 
-/* An app on the home page. */
-.app {
-  display: grid;
-  grid-template-columns: 88px 1fr;
-  gap: 16px;
-  align-items: start;
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 18px;
-}
-.app img.icon { width: 88px; height: 88px; border-radius: 20px; }
-.app h2 { margin: 2px 0 4px; }
-.app p { margin: 0 0 10px; color: var(--muted); }
-.links { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 15px; font-weight: 600; }
-
 /* The App Store button for a released app. */
 a.store {
   display: inline-block;
-  padding: 6px 14px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--bg);
+  padding: 9px 16px;
+  background: #0000f5;
+  color: #fff;
   text-decoration: none;
   font-size: 15px;
-  font-weight: 600;
+  font-weight: 700;
+  letter-spacing: .02em;
+  text-transform: uppercase;
 }
-a.store:hover { background: var(--accent); }
+a.store:hover { background: var(--hot); color: #0b0b0b; }
 
 /* A row of watch screenshots. */
 .shots { display: flex; gap: 10px; margin: 20px 0 4px; overflow-x: auto; padding-bottom: 6px; }
@@ -88,19 +70,15 @@ footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid var(--line);
 
 @media (max-width: 480px) {
   h1 { font-size: 28px; }
-  .app { grid-template-columns: 64px 1fr; padding: 14px; }
-  .app img.icon { width: 64px; height: 64px; border-radius: 15px; }
   .shots img { height: 150px; border-radius: 24px; }
 }
 
-/* The apps on the home page, and a "Coming soon" label. */
-.apps { display: grid; gap: 14px; }
+/* A "Coming soon" label. */
 .tag {
   display: inline-block;
   vertical-align: middle;
   margin-left: 6px;
   padding: 2px 9px;
-  border-radius: 999px;
   background: var(--line);
   color: var(--muted);
   font-size: 12px;

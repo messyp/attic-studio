@@ -3,66 +3,160 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Attic Studio</title>
-<meta name="description" content="Little apps, made in an attic.">
+<title>Beautiful Distraction</title>
+<meta name="description" content="Small-batch apps and games for Apple Watch, iPhone and your browser.">
+<link rel="canonical" href="https://beautifuldistraction.com/">
+<meta property="og:title" content="Beautiful Distraction">
+<meta property="og:description" content="Small-batch apps and games. Best enjoyed when you should be doing something else.">
+<meta property="og:url" content="https://beautifuldistraction.com/">
+<meta property="og:type" content="website">
 <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow:wght@500;700&family=Covered+By+Your+Grace&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="home/home.css">
 </head>
 <body>
-<main>
-  <header class="site">
-    <a class="brand" href="./">
-      <svg viewBox="0 0 44 44" aria-hidden="true">
-        <path d="M4 40 L22 6 L40 40 Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
-        <circle cx="22" cy="28" r="6" fill="#d9622b"/>
-        <path d="M22 22 V34 M16 28 H28" stroke="var(--bg)" stroke-width="1.6"/>
-      </svg>
-      <span>Attic Studio</span>
-    </a>
-  </header>
 
-  <h1>Little apps, made in an attic.</h1>
-  <p class="lede">Small, hand-made apps and games for Apple Watch and iPhone.</p>
-  <div class="apps">
-  <section class="app">
-    <img class="icon" src="images/watch-toys-icon.png" alt="Watch Toys icon">
-    <div>
-      <h2>Watch Toys</h2>
-      <p>Fifteen tactile toys and tiny games for Apple Watch: steel balls, fireworks, bubble poppers, smoke, mazes and more, all with haptics you can feel.</p>
-      <div class="links">
-        <a href="watch-toys/">Support</a>
-        <a href="watch-toys/privacy/">Privacy policy</a>
-      </div>
-    </div>
-  </section>
+<!-- Shared drawings: a rough-edge filter, and the moth's wing. -->
+<svg width="0" height="0" class="defs" aria-hidden="true">
+  <filter id="rough" x="-5%" y="-5%" width="110%" height="110%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4"/>
+    <feDisplacementMap in="SourceGraphic" scale="4"/>
+  </filter>
+  <symbol id="wing" viewBox="0 0 200 170" overflow="visible">
+    <path class="wing-fill" transform="translate(4 4)" d="M104 72C118 46 146 20 178 18c14-1 18 12 12 26-6 16-22 30-40 36-16 5-34 6-46 4Z"/>
+    <path class="wing-fill" transform="translate(4 4)" d="M104 88c16-2 38 2 52 14 10 10 8 28-6 34-16 6-34-10-46-34Z"/>
+    <path class="line" d="M104 72C118 46 146 20 178 18c14-1 18 12 12 26-6 16-22 30-40 36-16 5-34 6-46 4Z"/>
+    <path class="line" d="M104 88c16-2 38 2 52 14 10 10 8 28-6 34-16 6-34-10-46-34Z"/>
+    <path class="line thin" d="M108 76c10-10 22-20 34-26M110 80c12-2 24-4 36-10M112 96c10 2 20 6 28 12M110 102c6 8 14 16 20 22"/>
+    <circle class="line paper" cx="164" cy="44" r="14"/>
+    <circle class="solid" cx="165" cy="45" r="6.5"/>
+    <circle class="line paper" cx="142" cy="118" r="8"/>
+    <circle class="solid" cx="142" cy="118" r="3"/>
+  </symbol>
+</svg>
 
-  <section class="app">
-    <img class="icon" src="images/watch-pinball-icon.png" alt="Watch Pinball icon">
-    <div>
-      <h2>Watch Pinball</h2>
-      <p>Four pinball tables for Apple Watch, Cosmic, Haunted, Treasure and Sugar Rush, each with its own missions, multiball and wizard mode. Wind the plunger with the Digital Crown and nudge with a flick of the wrist.</p>
-      <div class="links">
-        <a class="store" href="https://apps.apple.com/app/id6822812366">Download on the App Store</a>
-        <a href="watch-pinball/">Support</a>
-        <a href="watch-pinball/privacy/">Privacy policy</a>
-      </div>
-    </div>
-  </section>
+<div class="bar">
+  <p>Home &gt; Distractions &gt; 4 of 4</p>
+</div>
 
-  <section class="app">
-    <img class="icon" src="images/pixel-mtb-icon.png" alt="Pixel MTB icon">
-    <div>
-      <h2>Pixel MTB <span class="tag">Coming soon</span></h2>
-      <p>Ride pixel-art trails through forests, an old town, a canyon and a glacier. Pump the rollers, pop off the lips, flip and grab your way to three stars on every trail.</p>
-      <div class="links">
-        <a href="pixel-mtb/">Support</a>
-        <a href="pixel-mtb/privacy/">Privacy policy</a>
-      </div>
+<header class="hero">
+  <div class="label">
+    <p class="kicker">Original distractions</p>
+    <h1><span>Beautiful</span> <span>Distraction</span></h1>
+    <svg class="stroke" viewBox="0 0 600 16" preserveAspectRatio="none" aria-hidden="true"><path d="M6 9C120 3 240 12 340 7s170 3 254 1"/></svg>
+    <p class="ribbon">
+      <svg viewBox="0 0 560 80" preserveAspectRatio="none" aria-hidden="true"><path d="M8 12c60 6 120 8 188 6s220-8 356-10l-30 30 30 34c-120 0-250 4-356 8S60 76 8 74l34-32Z"/></svg>
+      <span>Made in an attic</span>
+    </p>
+    <p class="lede">Small-batch apps and games for Apple Watch, iPhone and your browser.</p>
+    <div class="small-print">
+      <span>Attention span 0.8%</span>
+      <span>Best enjoyed when you should be doing something else</span>
     </div>
-  </section>
   </div>
 
-  <footer>© 2026 Attic Studio</footer>
+  <div class="bulb" aria-hidden="true" title="Wake the moth">
+    <svg viewBox="0 0 170 360">
+      <path class="line" d="M85 0c-2 40 3 80 0 120s2 50 0 74"/>
+      <g class="rays"><path d="M20 240 4 232M16 288H-2M24 330 8 342M150 240l16-8M154 288h18M146 330l16 12"/></g>
+      <path class="glass-print" transform="translate(5 5)" d="M68 224c0 18-24 30-24 58 0 26 19 42 41 42s41-16 41-42c0-28-24-40-24-58Z"/>
+      <path class="line glass" d="M68 224c0 18-24 30-24 58 0 26 19 42 41 42s41-16 41-42c0-28-24-40-24-58Z"/>
+      <path class="line thin" d="M76 300c-2-16 2-30 2-40l7 10 7-10c0 10 4 24 2 40"/>
+      <path class="line cap" d="M68 194h34v30H68Z"/>
+      <path class="line thin" d="M68 204h34M68 214h34"/>
+    </svg>
+  </div>
+  <p id="tink" class="tink" aria-hidden="true">tink!</p>
+</header>
+
+<main>
+  <h2 class="knockout"><span>Four ways</span> <span>to get</span> <span>nothing done</span></h2>
+
+  <div class="apps">
+    <section class="app pink">
+      <div class="print"><img src="images/bonehead-icon.png" alt="Bonehead icon" width="256" height="256"></div>
+      <div>
+        <p class="stamp">On tap</p>
+        <h3>Bonehead</h3>
+        <p>A pixel-art card roguelite you can play right now in your browser. Beat two rooms of house opponents, eight tables in all, claim tricks between rounds, and don't be the Bonehead.</p>
+        <div class="links">
+          <a class="store" href="https://messyp.github.io/bonehead/">Play it now</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="app white">
+      <div class="print"><img src="images/watch-pinball-icon.png" alt="Watch Pinball icon" width="256" height="256"></div>
+      <div>
+        <p class="stamp">On tap</p>
+        <h3>Watch Pinball</h3>
+        <p>Four pinball tables for Apple Watch, Cosmic, Haunted, Treasure and Sugar Rush, each with its own missions, multiball and wizard mode. Wind the plunger with the Digital Crown and nudge with a flick of the wrist.</p>
+        <div class="links">
+          <a class="store" href="https://apps.apple.com/app/id6822812366">Download on the App Store</a>
+          <a href="https://watchpinball.com">watchpinball.com</a>
+          <a href="watch-pinball/">Support</a>
+          <a href="watch-pinball/privacy/">Privacy policy</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="app black">
+      <div class="print"><img src="images/watch-toys-icon.png" alt="Watch Toys icon" width="256" height="256"></div>
+      <div>
+        <p class="stamp">Nearly on tap</p>
+        <h3>Watch Toys</h3>
+        <p>Fifteen tactile toys and tiny games for Apple Watch: steel balls, fireworks, bubble poppers, smoke, mazes and more, all with haptics you can feel.</p>
+        <div class="links">
+          <a href="https://watchtoys.app">watchtoys.app</a>
+          <a href="watch-toys/">Support</a>
+          <a href="watch-toys/privacy/">Privacy policy</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="app pink">
+      <div class="print"><img src="images/pixel-mtb-icon.png" alt="Pixel MTB icon" width="256" height="256"></div>
+      <div>
+        <p class="stamp">Still brewing</p>
+        <h3>Pixel MTB</h3>
+        <p>Ride pixel-art trails through forests, an old town, a canyon and a glacier. Pump the rollers, pop off the lips, flip and grab your way to three stars on every trail.</p>
+        <div class="links">
+          <a href="pixel-mtb/">Support</a>
+          <a href="pixel-mtb/privacy/">Privacy policy</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="note">
+    <p>Every one of these was made under the rafters, when there was probably something more sensible to be getting on with.</p>
+  </section>
 </main>
+
+<footer>
+  <p class="sign-off">Please distract responsibly.</p>
+  <p>© 2026 Beautiful Distraction</p>
+</footer>
+
+<!-- The moth. It ignores clicks, so it can never get in the way of a link. Click the bulb to wake it. -->
+<svg id="moth" class="moth" viewBox="0 0 200 170" aria-hidden="true">
+  <g class="wing-l"><use href="#wing" width="200" height="170" transform="translate(200 0) scale(-1 1)"/></g>
+  <g class="wing-r"><use href="#wing" width="200" height="170"/></g>
+  <g class="body">
+    <path class="line thin" d="M92 44C86 30 78 22 66 14M108 44c6-14 14-22 26-30"/>
+    <path class="line thin" d="M84 32l-8 2M79 26l-8 1M73 20l-7 0M116 32l8 2M121 26l8 1M127 20l7 0"/>
+    <path class="line fuzz" d="M100 72c16 0 16 26 13 44-2 14-8 26-13 26s-11-12-13-26c-3-18-3-44 13-44Z"/>
+    <path class="line thin" d="M88 96c8 3 16 3 24 0M90 112c7 2 13 2 20 0M93 126c5 1 9 1 14 0"/>
+    <path class="line fuzz" d="M100 42c16 0 22 12 20 24-1 10-10 16-20 16s-19-6-20-16c-2-12 4-24 20-24Z"/>
+    <circle class="line paper" cx="90" cy="58" r="11.5"/>
+    <circle class="line paper" cx="111" cy="59" r="9.5"/>
+    <g id="pupils"><circle class="solid" cx="90" cy="58" r="4.6"/><circle class="solid" cx="111" cy="59" r="4"/></g>
+    <path class="line thin" d="M92 74c5 3 11 3 17-1"/>
+  </g>
+</svg>
+
+<script src="home/moth.js"></script>
 </body>
 </html>
