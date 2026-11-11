@@ -76,6 +76,48 @@ APPS = [
                             "privacy policy, and you can turn Game Center off in your iPhone's Settings."),
         ],
     },
+    {
+        "slug": "rain-check",
+        "name": "Rain Check",
+        "tagline": "A cosy logic puzzle: give every critter a leaf before the rain.",
+        "status": "Coming soon",
+        "updated": "11 November 2026",
+        "help": [
+            ("New to it?", "Tap the ? on the home screen or in a level for How to play, a short walkthrough of every "
+                           "rule on a tiny board. You can open it again any time."),
+            ("No sound?", "Rain Check follows your iPhone's Silent switch, so it plays quietly when your phone is on "
+                          "Silent. You can also mute it with the speaker button on the home screen."),
+            ("Bought Rain Check+ on another device?", "Open Rain Check+ from the home screen and tap Restore purchase, "
+                                                       "signed in with the same Apple Account. Family Sharing is included."),
+            ("Your progress", "Levels, streaks, your Garden Diary and settings are saved on your iPhone. Deleting the "
+                              "app deletes them."),
+        ],
+        "privacy": [
+            ("In short", "Rain Check has no account and we don't collect your personal data ourselves. The free version "
+                         "shows ads from Google AdMob, and Google collects some information to show and measure those "
+                         "ads, as described below. Rain Check+ removes the banner and the ads between levels."),
+            ("What stays on your iPhone", "Your levels, streaks, Garden Diary, hearts, acorns, fireflies and settings "
+                                          "are kept only on your iPhone. We never receive them. Deleting the app deletes them."),
+            ("Advertising (Google AdMob)", "To show ads, Google's AdMob service may collect your device's advertising "
+                                           "identifier, your IP address and an approximate location worked out from it, "
+                                           "the type of device and software you use, and how you interact with the ads. "
+                                           "Google uses this to choose, show and measure ads and to prevent fraud. "
+                                           "If you're in the UK or the European Economic Area, the game asks for your "
+                                           "consent before ads can be personalised. On iPhone, the advertising identifier "
+                                           "is only shared if you allow tracking when Apple's prompt asks. Ads are limited "
+                                           "to content suitable for all ages. How Google uses this information is explained at "
+                                           '<a href="https://policies.google.com/technologies/partner-sites">How Google uses '
+                                           "information from sites or apps that use its services</a>."),
+            ("Your choices", "You can change your ad consent at any time from Privacy choices in the game's settings. "
+                             "You can stop tracking for every app in your iPhone's Settings, under Privacy & Security, "
+                             "then Tracking. Buying Rain Check+ removes the banner and the ads between levels; ads you "
+                             "choose to watch for a reward are always optional."),
+            ("Purchases", "Rain Check+ is bought through the App Store. Apple handles the payment and we never see your "
+                          "details. We only learn from Apple, on your iPhone, whether Rain Check+ is unlocked."),
+            ("Children", "Rain Check is a game for all ages, but it isn't made specifically for children. We don't knowingly "
+                         "collect personal information from children."),
+        ],
+    },
 ]
 
 
@@ -155,6 +197,6 @@ for app in APPS:
           app_head(app, "../../", "Privacy policy", "privacy") + privacy_html + f"""
   <h2>Changes and contact</h2>
   <p>If this policy changes, the new version will be posted on this page. Questions about privacy: {mail}.</p>
-  <p class="small">Last updated {UPDATED}.</p>
+  <p class="small">Last updated {app.get("updated", UPDATED)}.</p>
 """))
 print("built", 2 * len(APPS), "pages")
