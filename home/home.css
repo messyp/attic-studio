@@ -186,6 +186,8 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 .links a.store:hover { background: var(--ink); color: var(--black); }
 .links a.site { padding: 9px 16px; background: var(--ink); color: var(--black); text-decoration: none; letter-spacing: .02em; text-transform: uppercase; font-size: 15px; }
 .links a.site:hover { background: var(--blue); color: var(--paper); }
+.pink .links a.site { background: var(--black); color: var(--paper); }
+.pink .links a.site:hover { background: var(--blue); }
 
 .note { margin: 68px auto 0; max-width: 680px; padding: 22px 26px 24px; background: var(--paper); border: 2px solid var(--black); transform: rotate(-.7deg); font: 400 clamp(26px, 3.6vw, 34px)/1.2 var(--hand); letter-spacing: .02em; }
 
