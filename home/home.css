@@ -9,7 +9,7 @@
   --hand: "Covered By Your Grace", "Marker Felt", cursive;
   --text: "Barlow", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
   --title: clamp(64px, 16vw, 176px);
-  --heading: clamp(52px, 9vw, 92px);
+  --heading: clamp(30px, 4.6vw, 46px);
   --name: clamp(50px, 6.6vw, 72px);
 }
 
@@ -42,7 +42,12 @@ img { display: block; max-width: 100%; height: auto; }
 .wing-fill { fill: var(--ink); }
 
 .bar { background: var(--black); color: var(--paper); border-bottom: 1px solid var(--ink); padding: 11px 24px; font-size: 15px; }
-.bar p { max-width: 1040px; margin: 0 auto; }
+.bar-in { max-width: 1040px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.social { display: flex; gap: 18px; --glyph: var(--black); }
+.social a { display: inline-flex; align-items: center; gap: 7px; color: var(--paper); text-decoration: none; font-weight: 700; }
+.social a:hover { color: var(--ink); }
+.social a:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+.social svg { width: 20px; height: 20px; flex: none; }
 
 /* The big label. */
 .hero { position: relative; max-width: 1120px; margin: 0 auto; padding: 96px 24px 72px; }
@@ -140,7 +145,7 @@ h1 span { display: block; }
 /* Page content. */
 main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 .knockout { margin: 8px 0 40px; font: 400 var(--heading)/1 var(--display); }
-.knockout span { display: table; padding: 0 14px 2px; background: var(--paper); }
+.knockout span { display: inline-block; padding: 2px 12px 4px; background: var(--paper); transform: rotate(-1deg); }
 
 .apps { display: grid; gap: 44px; }
 .app {
@@ -193,10 +198,16 @@ main { max-width: 1040px; margin: 0 auto; padding: 0 24px; }
 
 footer { margin-top: 72px; padding: 30px 24px 40px; background: var(--black); color: var(--paper); text-align: center; font-size: 15px; border-top: 1px solid var(--ink); }
 .sign-off { font: 400 clamp(38px, 5.4vw, 56px)/1.1 var(--display); color: var(--ink-pale); margin-bottom: 8px; }
+.follow { margin: 18px 0 12px; }
+.social.big { justify-content: center; gap: 12px; margin-bottom: 26px; }
+.social.big a { padding: 10px 16px; border: 2px solid var(--paper); font-size: 16px; }
+.social.big a:hover { background: var(--ink); border-color: var(--ink); color: var(--black); --glyph: var(--ink); }
+.social.big svg { width: 24px; height: 24px; }
 
 @media (max-width: 640px) {
   body { font-size: 17px; }
   .bar { padding-inline: 16px; }
+  .bar .social span { display: none; }
   .hero { padding: 132px 16px 52px; }
   .label { padding: 30px 16px 22px; box-shadow: 6px 7px 0 var(--black); }
   main { padding: 0 16px; }
