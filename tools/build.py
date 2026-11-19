@@ -57,6 +57,35 @@ APPS = [
         ],
     },
     {
+        "slug": "brickstorm",
+        "name": "Brickstorm",
+        "tagline": "An arcade brick-breaker for Apple Watch.",
+        "status": "Coming soon",
+        "updated": "19 November 2026",
+        "help": [
+            ("Controls", "Turn the Digital Crown to move the paddle, or drag a finger along the screen. Tap to serve; "
+                         "the ball also goes by itself after a moment. Up Moves and Crown on the home screen change "
+                         "which way and how fast the crown moves the paddle."),
+            ("Easy, Normal or Hard", "Choose under Mode on the home screen; a new climb starts in that mode. Easy lets "
+                                     "you continue as often as you like, Normal gives you one continue, and Hard has none. "
+                                     "A continue starts the floor again with fresh lives and your score back to zero. "
+                                     "Climbing a whole tower on Hard wins its gold crown."),
+            ("Left in the middle of a climb?", "Your climb is saved at the start of every floor. Open the tower again "
+                                               "and you carry on from that floor, with the lives you had."),
+            ("Your progress", "Stars, crowns, best scores and climbs in progress are saved on your watch. Deleting the "
+                              "app deletes them."),
+        ],
+        "privacy": [
+            ("No data collected", "Brickstorm doesn't collect, store or share any personal data. There is no account, "
+                                  "no analytics, no advertising and no tracking."),
+            ("What stays on your watch", "Your settings, stars, crowns, best scores and any climb in progress are kept "
+                                         "only on your watch. The Neon tower reads the watch's time to build the clock "
+                                         "on its first floor; that never leaves the watch."),
+            ("Purchases", "Anything you buy is bought through the App Store. Apple handles the payment and we never see "
+                          "your details."),
+        ],
+    },
+    {
         "slug": "pixel-mtb",
         "name": "Pixel MTB",
         "tagline": "A pixel-art mountain bike game for iPhone.",
