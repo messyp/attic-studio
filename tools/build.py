@@ -60,7 +60,8 @@ APPS = [
         "slug": "brickstorm",
         "name": "Brickstorm",
         "tagline": "An arcade brick-breaker for Apple Watch.",
-        "status": "Coming soon",
+        "status": None,
+        "store": "https://apps.apple.com/app/id6829541408",
         "updated": "19 November 2026",
         "help": [
             ("Controls", "Turn the Digital Crown to move the paddle, or drag a finger along the screen. Tap to serve; "
